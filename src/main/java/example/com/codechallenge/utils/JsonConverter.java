@@ -10,8 +10,8 @@ import java.time.format.DateTimeFormatter;
 
 
 public class JsonConverter {
-	final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS");
-	private final Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").
+	final static DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS");
+	private final static Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").
 			registerTypeAdapter(LocalDateTime.class, new JsonDeserializer<LocalDateTime>() {
 		@Override
 		public LocalDateTime deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
@@ -25,19 +25,19 @@ public class JsonConverter {
 		}
 	}).create();
 
-	public  <T> T getElement(String value, Class<T> clazz) {
+	public static  <T> T getElement(String value, Class<T> clazz) {
 		return gson.fromJson(value, clazz);
 	}
 
-	public  <T> T[] getElements(String value, Class<T[]> clazz) {
+	public  static <T> T[] getElements(String value, Class<T[]> clazz) {
 		return gson.fromJson(value, clazz);
 	}
 
-	public <T> String getJson(T element) {
+	public static  <T> String getJson(T element) {
 		return gson.toJson(element);
 	}
 
-	public <T> String getJsonRecursive(T element) {
+	public static <T> String getJsonRecursive(T element) {
 		ObjectMapper mapper = new ObjectMapper();
 		String jsonInString;
 		try {

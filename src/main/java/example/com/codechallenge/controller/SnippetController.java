@@ -27,7 +27,7 @@ public class SnippetController {
     @PostMapping("{name}/like")
     public ResponseEntity<Object> likeSnippet(@PathVariable("name") String name) {
         SnippetResponse snippetResponse = snippetService.likeSnippet(name);
-        System.out.println("snippet"+ snippetResponse);
+        System.out.println("snippet" + snippetResponse);
         return new ResponseEntity<>(snippetResponse, HttpStatus.OK);
 
     }

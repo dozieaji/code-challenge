@@ -23,6 +23,8 @@ This Application is being developed using embedded H2 postgresql with Spring Boo
 
 ## Run the project via the url provided on postman
 
+## Test Via Swagger Ui
+URL https://code-challenge.shedrackajiaji.repl.co/swagger-ui.html#/snippet-controller
 
 
 1. SAMPLE POST REQUEST

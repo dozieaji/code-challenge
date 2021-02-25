@@ -7,7 +7,7 @@ import org.springframework.hateoas.RepresentationModel;
 
 @Data
 @AllArgsConstructor
-public class SnippetRequest extends RepresentationModel<SnippetRequest> {
+public class SnippetRequest {
 
     private String name;
     @JsonProperty("expires_in")

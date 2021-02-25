@@ -1,4 +1,4 @@
-# Code-Challenge-Application [![HitCount](https://code-challenge.shedrackaji.repl.co)
+# Code-Challenge-Application [![HitCount](https://code-challenge.shedrackaji.repl.co)]
 
 
 <hr>

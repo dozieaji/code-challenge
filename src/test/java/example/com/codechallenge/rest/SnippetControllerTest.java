@@ -2,6 +2,7 @@ package example.com.codechallenge.rest;
 
 import example.com.codechallenge.dto.SnippetRequest;
 import example.com.codechallenge.dto.SnippetResponse;
+import example.com.codechallenge.service.model.Snippet;
 import example.com.codechallenge.utils.JsonConverter;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
@@ -22,7 +23,13 @@ class SnippetControllerTest extends AbstractControllerTest {
         // given
         LocalDateTime creationDate = LocalDateTime.of(2018, 5, 20, 20, 51, 16);
         SnippetRequest snippetRequest = new SnippetRequest("recipe", 30, "1 apple");
-        SnippetResponse response = new SnippetResponse(snippetRequest, "http://localhost:8080/snippets/recipe", creationDate.toString());
+        Snippet snippet = new Snippet(snippetRequest, "http://localhost:8080/snippets/recipe", creationDate);
+
+        snippet.setLikes(1);
+        SnippetResponse response = new SnippetResponse(snippet);
+
+        System.out.println("Snippet "+snippet.getExpiresAt());
+        System.out.println("Snippet Response"+response);
         String json = JsonConverter.getJson(snippetRequest);
 
         // when
@@ -45,8 +52,9 @@ class SnippetControllerTest extends AbstractControllerTest {
         // given
         LocalDateTime creationDate = LocalDateTime.of(2018, 5, 20, 20, 51, 16);
         SnippetRequest snippetRequest = new SnippetRequest("recipe", 30, "1 apple");
-        SnippetResponse response = new SnippetResponse(snippetRequest, "http://localhost:8080/snippets/recipe", creationDate.toString());
-        response.setLikes(1);
+        Snippet snippet = new Snippet(snippetRequest, "http://localhost:8080/snippets/recipe", creationDate);
+        snippet.setLikes(1);
+        SnippetResponse response = new SnippetResponse(snippet);
 
         // when
         when(snippetService.likeSnippet(snippetRequest.getName())).thenReturn(response);
@@ -67,8 +75,9 @@ class SnippetControllerTest extends AbstractControllerTest {
     public void should_get_snippet_When_valid_url() throws Exception {
         LocalDateTime creationDate = LocalDateTime.of(2018, 5, 20, 20, 51, 16);
         SnippetRequest snippetRequest = new SnippetRequest("recipe", 30, "1 apple");
-        SnippetResponse response = new SnippetResponse(snippetRequest, "http://localhost:8080/snippets/recipe", creationDate.toString());
-
+        Snippet snippet = new Snippet(snippetRequest, "http://localhost:8080/snippets/recipe", creationDate);
+        snippet.setLikes(1);
+        SnippetResponse response = new SnippetResponse(snippet);
         when(snippetService.getSnippet("recipe")).thenReturn(response);
 
         mockMvc.perform(get("/snippets/recipe")

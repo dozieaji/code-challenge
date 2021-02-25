@@ -1,7 +1,6 @@
 package example.com.codechallenge.rest;
 
 import example.com.codechallenge.service.SnippetService;
-import example.com.codechallenge.service.rediscache.CacheService;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -29,8 +28,6 @@ public abstract class AbstractControllerTest {
 	@MockBean
 	protected SnippetService snippetService;
 
-	@MockBean
-	protected CacheService cacheService;
 
 //	@Before
 //	public void setUp() {

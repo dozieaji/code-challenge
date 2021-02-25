@@ -13,7 +13,7 @@ This Application is being developed using embedded H2 postgresql with Spring Boo
  
 
 ## Assumptions 
-	Considering the Use case for the project. There's a need for embedded database and that's why I used H2 Database. And since multiple concurrent browser sessions are supported and the database objects reside on the server, the amount of concurrent work is limited by the memory available to the server application.
+	Considering the Use case for the project. There's a need for embedded database and that's why I used embedded H2 Database. And since multiple concurrent browser sessions are supported and the database objects reside on the server, the amount of concurrent work is limited by the memory available to the server application.
 
 
 ##Design and technolies used and reasons

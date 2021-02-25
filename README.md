@@ -8,7 +8,7 @@ This an API web server that accepts a snippet of text and makes that snippet
 available at a URL. Each snippet will be available as text at a URL until it
 expires. The snippet's expiry should be extended by 30 seconds each time it is accessed.
 
-This Application is being developed using H2 with Spring Boot. Just like other databases, there's full intrinsic support for it in the Spring Boot ecosystem.
+This Application is being developed using embedded H2 postgresql with Spring Boot. Just like other databases, there's full intrinsic support for it in the Spring Boot ecosystem.
 
  
 

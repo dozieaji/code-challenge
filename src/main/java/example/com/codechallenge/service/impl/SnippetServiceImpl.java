@@ -57,7 +57,6 @@ public class SnippetServiceImpl implements SnippetService {
 
     }
 
-
     public SnippetResponse getSnippet(String name) {
 
         Snippet snippet = snippetRepository.findByName(name);
